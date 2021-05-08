@@ -1,0 +1,145 @@
+.imageForm {
+  display: flex;
+  padding: 0rem 10rem;
+  height: 450px;
+}
+
+.imageForm--image {
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  width: 750px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.imageForm__input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.imageForm__input + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: black;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.imageForm__input:focus + label,
+.imageForm__input + label:hover {
+  background-color: red;
+}
+
+::-webkit-file-upload-button {
+  background-color: var(--bgColor);
+  color: white;
+  padding: 0.5rem;
+}
+
+.imageForm--content {
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  width: 100%;
+}
+
+.imageForm--content--text {
+  width: 100%;
+  height: 20%;
+  font-size: 1rem;
+}
+
+.imageForm__button {
+  background-color: var(--bgColor);
+  border-radius: 1rem;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .imageForm {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 80vw;
+    padding: 0rem;
+  }
+
+  .imageForm--image {
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    width: 80vw;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .imageForm__input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .imageForm__input + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .imageForm__input:focus + label,
+  .imageForm__input + label:hover {
+    background-color: red;
+  }
+
+  ::-webkit-file-upload-button {
+    background-color: var(--bgColor);
+    color: white;
+    padding: 0.5rem;
+  }
+
+  .imageForm--content {
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .imageForm--content--text {
+    width: 100%;
+    height: 20%;
+    font-size: 1rem;
+  }
+
+  .imageForm__button {
+    background-color: var(--bgColor);
+    border-radius: 1rem;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
