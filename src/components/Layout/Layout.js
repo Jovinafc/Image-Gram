@@ -6,7 +6,6 @@ import ImageUpload from '../ImageUpload';
 import MyImages from '../MyImages';
 
 const Layout = (props) => {
-  console.log('fekn');
   return (
     <div>
       <Navbar />
