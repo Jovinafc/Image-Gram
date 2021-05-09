@@ -19,16 +19,13 @@
 }
 
 .post__image {
-  margin: 1rem 0rem;
+  margin: 0.5rem 0rem;
   height: 20rem;
 }
 
 .post__image > img {
   height: 100%;
   width: 100%;
-}
-
-.post__content {
 }
 
 .post__content--top {
@@ -39,12 +36,22 @@
 
 .post__content--icon {
   padding: 0.3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .post__content--icon > .MuiSvgIcon-root {
-  color: red;
   font-size: xx-large;
   cursor: pointer;
+}
+
+.post__likedCount {
+  margin-left: 0.5rem;
+}
+
+.fav:hover {
+  color: red;
 }
 
 .post__content--icon:hover > .MuiSvgIcon-root {
@@ -54,4 +61,84 @@
 
 .post__content--caption {
   text-align: left;
+  cursor: pointer;
+}
+
+.post__content--para {
+  height: 1.7em;
+  overflow: hidden;
+}
+
+.post__content--paraClick {
+  height: auto;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .post {
+    background-color: #d6d3d1;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin: 0rem;
+    padding: 0rem;
+  }
+
+  .post__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .post__header > h5 {
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+
+  .post__image {
+    margin: 0rem 0rem;
+    height: 20rem;
+    width: 100vw;
+  }
+
+  .post__image > img {
+    height: 100%;
+  }
+
+  .post__content--top {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .post__content--icon {
+    padding: 0.3rem;
+  }
+
+  .post__content--icon > .MuiSvgIcon-root {
+    color: red;
+    font-size: xx-large;
+    cursor: pointer;
+  }
+
+  .post__content--icon:hover > .MuiSvgIcon-root {
+    color: red;
+    transition: ease-in;
+  }
+
+  .post__content--caption {
+    text-align: left;
+    cursor: pointer;
+    width: 100vw;
+  }
+
+  .post__content--para {
+    height: 1.7em;
+    overflow: hidden;
+  }
+
+  .post__content--paraClick {
+    height: auto;
+    overflow: hidden;
+  }
 }

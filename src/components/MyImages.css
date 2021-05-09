@@ -1,0 +1,14 @@
+.myImages__Cont {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  border: 1px solid black;
+  justify-content: space-between;
+}
+
+@media (max-width: 500px) {
+  .myImages__Cont {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    border: 1px solid black;
+  }
+}

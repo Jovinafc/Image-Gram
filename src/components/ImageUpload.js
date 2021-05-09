@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { storage, db, auth } from '../firebase';
+import { storage, db } from '../firebase';
 import firebase from 'firebase/app';
 import './ImageUpload.css';
 import { useStateValue } from '../StateProvider';
@@ -9,11 +9,8 @@ const ImageUpload = () => {
   const [caption, setCaption] = useState('');
   const [image, setImage] = useState(null);
   const [imageData, setImageData] = useState(Default);
-  const [url, setURL] = useState('');
+  // const [url, setURL] = useState('');
   const [{ user }, dispatch] = useStateValue();
-
-  console.log(user);
-  console.log(user.uid);
 
   const handleChange = (e) => {
     e.preventDefault();

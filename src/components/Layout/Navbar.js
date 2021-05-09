@@ -1,13 +1,28 @@
 import React from 'react';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import PostAddOutlinedIcon from '@material-ui/icons/PostAddOutlined';
+//import PostAddOutlinedIcon from '@material-ui/icons/PostAddOutlined';
 import ListAltOutlinedIcon from '@material-ui/icons/ListAltOutlined';
 import AddAPhotoOutlinedIcon from '@material-ui/icons/AddAPhotoOutlined';
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import './Navbar.css';
-import { NavLink, Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { actionTypes } from '../../reducer';
+import { useStateValue } from '../../StateProvider';
 
 const Navbar = () => {
+  const [{ user }, dispatch] = useStateValue();
+
+  const signOutUser = () => {
+    dispatch({
+      type: actionTypes.LOGOUT,
+    });
+  };
+
+  if (!localStorage.getItem('user')) {
+    console.log('Inside Redirect Block');
+    return <Redirect to='/signIn' />;
+  }
+
   return (
     <nav className='navbar'>
       <div className='navbar__Header'>
@@ -20,7 +35,9 @@ const Navbar = () => {
           </Link>
         </div>
         <div className='navbar__navOptions'>
-          <ListAltOutlinedIcon />
+          <Link to='/myImages'>
+            <ListAltOutlinedIcon />
+          </Link>
         </div>
 
         <div className='navbar__navOptions'>
@@ -29,7 +46,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className='navbar__navOptions'>
+        <div onClick={signOutUser} className='navbar__navOptions'>
           <ExitToAppOutlinedIcon />
         </div>
       </div>

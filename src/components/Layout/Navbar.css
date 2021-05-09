@@ -58,7 +58,13 @@
     align-items: center;
     position: sticky;
     z-index: 100;
+    width: 100vw;
     color: white;
-    padding: 0rem 1rem;
+    padding: 0rem 0rem;
+  }
+
+  .navbar__Header {
+    cursor: pointer;
+    margin-left: 1rem;
   }
 }

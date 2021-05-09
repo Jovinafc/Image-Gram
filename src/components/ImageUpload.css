@@ -74,7 +74,6 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    width: 80vw;
     padding: 0rem;
   }
 
@@ -82,7 +81,7 @@
     display: flex;
     flex-direction: column;
     height: 350px;
-    width: 80vw;
+    width: 100vw;
   }
 
   .image {
@@ -121,14 +120,16 @@
 
   .imageForm--content {
     display: flex;
-    padding: 1rem;
+    padding: 0rem;
     flex-direction: column;
     width: 100%;
+    margin-top: 1rem;
   }
 
   .imageForm--content--text {
-    width: 100%;
-    height: 20%;
+    width: 80%;
+    margin-left: 10%;
+    height: 80px;
     font-size: 1rem;
   }
 

@@ -3,18 +3,19 @@ import Navbar from './Navbar';
 import { Switch, Route } from 'react-router-dom';
 import ImageList from '../ImageList';
 import ImageUpload from '../ImageUpload';
+import MyImages from '../MyImages';
 
-const Layout = () => {
+const Layout = (props) => {
+  console.log('fekn');
   return (
     <div>
-      {/* Navbar */}
       <Navbar />
-
-      {/* Main */}
-      <Switch>
+      {/* <div>{props.children}</div> */}
+      {/* <Switch>
         <Route exact path='/' component={ImageList} />
         <Route exact path='/imageUpload' component={ImageUpload} />
-      </Switch>
+        <Route exact path='/myImages' component={MyImages} />
+      </Switch> */}
     </div>
   );
 };

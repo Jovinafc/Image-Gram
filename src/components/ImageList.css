@@ -1,2 +1,16 @@
 .postImageCont {
+  border: 1px solid black;
+  margin: 2rem;
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width: 600px) {
+  .postImageCont {
+    border: 1px solid black;
+    margin: 0rem;
+    display: grid;
+    width: 100vw;
+    place-items: center;
+  }
 }

@@ -7,9 +7,10 @@ import React from 'react';
 import { useStateValue } from '../StateProvider';
 import { actionTypes } from '../reducer';
 import Layout from './Layout/Layout';
+import { Redirect } from 'react-router-dom';
 
 const Home = () => {
-  // const [state, dispatch] = useStateValue();
+  const [{ isAuthenticated, user }, dispatch] = useStateValue();
 
   // const signOutUser = () => {
   //   console.log('Inside Log');
@@ -18,6 +19,11 @@ const Home = () => {
   //     type: actionTypes.LOGOUT,
   //   });
   // };
+
+  if (user === null) {
+    console.log('Inside Redirect Block');
+    return <Redirect to='/signIn' />;
+  }
 
   return (
     <>

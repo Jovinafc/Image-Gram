@@ -1,0 +1,61 @@
+.myImage {
+  height: 250px;
+  /*width: 300px; */
+  display: flex;
+  margin: 2rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.myImage__img {
+  height: 100%;
+  width: 100%;
+}
+
+.myImage__overlay {
+  position: absolute;
+  opacity: 0;
+  background-color: #101310;
+  transition: all 0.3s ease;
+  display: grid;
+  place-items: center;
+  height: 80%;
+  color: aliceblue;
+  width: 100%;
+}
+
+.myImage:hover .myImage__overlay {
+  opacity: 0.4;
+}
+
+@media (max-width: 500px) {
+  .myImage {
+    /* height: 250px;
+    width: 300px; */
+    display: flex;
+    margin: 0rem;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .myImage__img {
+    height: 80%;
+    width: 100%;
+  }
+
+  .myImage__overlay {
+    position: absolute;
+    opacity: 0;
+    background-color: #101310;
+    transition: all 0.3s ease;
+    display: grid;
+    place-items: center;
+    height: 80%;
+    color: aliceblue;
+    width: 100%;
+  }
+
+  .myImage:hover .myImage__overlay {
+    opacity: 0.4;
+  }
+}
