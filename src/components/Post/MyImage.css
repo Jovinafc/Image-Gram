@@ -15,17 +15,22 @@
 .myImage__overlay {
   position: absolute;
   opacity: 0;
-  background-color: #101310;
+  background-color: rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
-  display: grid;
-  place-items: center;
-  height: 80%;
-  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: whitesmoke;
   width: 100%;
 }
 
+.myImage__overlay > p {
+  margin-left: 1rem;
+}
+
 .myImage:hover .myImage__overlay {
-  opacity: 0.4;
+  opacity: 1;
 }
 
 @media (max-width: 500px) {
@@ -46,13 +51,18 @@
   .myImage__overlay {
     position: absolute;
     opacity: 0;
-    background-color: #101310;
+    background-color: rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    display: grid;
-    place-items: center;
-    height: 80%;
-    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: whitesmoke;
     width: 100%;
+  }
+
+  .myImage__overlay > p {
+    margin-left: 1rem;
   }
 
   .myImage:hover .myImage__overlay {
