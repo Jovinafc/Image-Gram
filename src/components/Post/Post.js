@@ -6,10 +6,11 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ChatBubbleOutlineOutlinedIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
 import { useStateValue } from '../../StateProvider';
 
-const Post = ({ key, post, addLike, dummyFn }) => {
+const Post = ({ key, post, addLike, dummyFn, addComment }) => {
   const [{ user }, dispatch] = useStateValue();
   const [toggle, setToggle] = useState(false);
   const [liked, setLiked] = useState(false);
+  const [comment, setComment] = useState('');
   // console.log(post);
   // console.log(post.data.profilePic);
   // console.log(
@@ -31,6 +32,12 @@ const Post = ({ key, post, addLike, dummyFn }) => {
       setLiked(false);
     }
   }, [post]);
+
+  const commentAdd = (e) => {
+    e.preventDefault();
+    addComment(post.id, user.uid, user.displayName, user.photoURL, comment);
+    setComment('');
+  };
 
   return (
     <div className='post'>
@@ -59,7 +66,12 @@ const Post = ({ key, post, addLike, dummyFn }) => {
             )}
           </div>
           <div onClick={() => dummyFn(post.id)} className='post__content--icon'>
-            <ChatBubbleOutlineOutlinedIcon />
+            <ChatBubbleOutlineOutlinedIcon />{' '}
+            {post.data.comments ? (
+              <p className='post__likedCount'>{post.data.comments.length}</p>
+            ) : (
+              <p className='post__likedCount'>0</p>
+            )}
           </div>
         </div>
         <div className='post__content--caption'>
@@ -73,6 +85,53 @@ const Post = ({ key, post, addLike, dummyFn }) => {
             <strong>{post.data.username || 'Username'}</strong>{' '}
             {post.data.caption}
           </p>
+        </div>
+      </div>
+
+      <div className='post__comments'>
+        <div className='post__commentOutput'>
+          {post.data.comments ? (
+            <div>
+              {post.data.comments.length > 2 ? (
+                <p className='post__viewMore'>
+                  View more {post.data.comments.length - 2}
+                </p>
+              ) : null}
+              {post.data.comments.slice(-2).map((p) => (
+                <div className='post__comment'>
+                  <p>
+                    <strong>{p.user_name}</strong> {p.comment}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div>No Comments</div>
+          )}
+        </div>
+        <div className='post__commentInput'>
+          <form
+            // onSubmit={(e) =>
+            //   addComment(
+            //     e,
+            //     post.id,
+            //     user.uid,
+            //     user.displayName,
+            //     user.photoURL,
+            //     comment
+            //   )
+            // }
+            className='post__commentInput--form'
+          >
+            <textarea
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+              placeholder='Add a comment'
+            />
+            <button className='post__button' onClick={commentAdd} type='submit'>
+              Post
+            </button>
+          </form>
         </div>
       </div>
     </div>

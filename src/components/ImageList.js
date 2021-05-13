@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { db } from '../firebase';
 import Post from './Post/Post';
 import './ImageList.css';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import { useStateValue } from '../StateProvider';
 
 const ImageList = () => {
@@ -77,6 +77,41 @@ const ImageList = () => {
       });
   };
 
+  //Comments
+  /*
+    uid
+    user name
+    user profile pic
+    comment_text,
+    timestamp,
+    likes
+  */
+
+  const addComment = (post_id, user_id, user_name, user_image, comment) => {
+    let postRef = db.collection('posts').doc(post_id);
+
+    let commentObject = {
+      user_uid: user_id,
+      user_name: user_name,
+      user_image: user_image,
+      comment: comment,
+      // commentLikes: [],
+    };
+
+    console.log(commentObject);
+
+    postRef
+      .update({
+        comments: firebase.firestore.FieldValue.arrayUnion(commentObject),
+      })
+      .then((post) => {
+        console.log(post);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   console.log(posts);
 
   return (
@@ -89,6 +124,7 @@ const ImageList = () => {
               post={post}
               dummyFn={dummyFn}
               addLike={addLike}
+              addComment={addComment}
             />
           ))}
         </div>

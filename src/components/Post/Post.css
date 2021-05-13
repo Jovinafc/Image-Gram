@@ -66,12 +66,70 @@
 
 .post__content--para {
   height: 1.7em;
+  margin: 0rem;
   overflow: hidden;
 }
 
 .post__content--paraClick {
   height: auto;
   overflow: hidden;
+}
+
+.post__commentInput {
+  /* border: 1px solid black; */
+}
+
+.post__commentInput--form {
+  width: 100%;
+  display: flex;
+}
+
+.post__commentInput--form > textarea {
+  width: 90%;
+  outline-width: 0;
+  border: none;
+  padding: 5px 20px;
+
+  border-radius: 999px;
+  background-color: #eff2f5;
+}
+
+.post__commentInput--form > button {
+  width: 10%;
+}
+
+.post__commentOutput {
+  float: left;
+  font-size: smaller;
+  margin-bottom: 1rem;
+}
+
+.post__viewMore {
+  text-align: left;
+  font-size: small;
+  color: grey;
+  margin: 0rem;
+  margin-bottom: 0.5rem;
+}
+
+.post__comment {
+  text-align: left;
+}
+
+.post__comment > p {
+  margin: 0px;
+}
+
+textarea {
+  resize: none;
+}
+
+.post__button {
+  border: none;
+  color: white;
+  margin-left: 2px;
+  cursor: pointer;
+  background-color: var(--bgColor);
 }
 
 @media (max-width: 600px) {
