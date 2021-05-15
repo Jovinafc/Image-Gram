@@ -6,7 +6,6 @@ import { Redirect } from 'react-router-dom';
 const Home = () => {
   const [{ isAuthenticated, user }, dispatch] = useStateValue();
   if (user === null) {
-    console.log('Inside Redirect Block');
     return <Redirect to='/signIn' />;
   }
   return (

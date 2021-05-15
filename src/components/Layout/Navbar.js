@@ -10,7 +10,7 @@ import { actionTypes } from '../../reducer';
 import { useStateValue } from '../../StateProvider';
 
 const Navbar = () => {
-  const [{ user }, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   const signOutUser = () => {
     dispatch({
@@ -19,7 +19,6 @@ const Navbar = () => {
   };
 
   if (!localStorage.getItem('user')) {
-    console.log('Inside Redirect Block');
     return <Redirect to='/signIn' />;
   }
 

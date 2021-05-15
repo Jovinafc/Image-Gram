@@ -1,0 +1,12 @@
+.alert {
+  box-sizing: border-box;
+  position: fixed;
+  background-color: yellow;
+}
+
+.bottom-right {
+  bottom: 12px;
+  right: 12px;
+  transition: transform 0.6s ease-in-out;
+  animation: toast-in-right 0.7s;
+}

@@ -1,0 +1,13 @@
+.selectedImage {
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width: 600px) {
+  .selectedImage {
+    margin: 0rem;
+    display: grid;
+    width: 100vw;
+    place-items: center;
+  }
+}

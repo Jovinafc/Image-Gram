@@ -5,10 +5,9 @@ import MyImage from './Post/MyImage';
 import './MyImages.css';
 
 const MyImages = () => {
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user }] = useStateValue();
   const [myPosts, setMyPosts] = useState([]);
 
-  console.log(user);
   useEffect(() => {
     if (user) {
       db.collection('posts')
@@ -38,24 +37,29 @@ const MyImages = () => {
   }, [user]);
 
   return user ? (
-    <div className='myImages'>
-      <div className='myImages__header'>
-        <div className='myImages__left'>
-          <img className='myImages__img' src={user.photoURL} />
-        </div>
-        <div className='myImages__right'>
-          <p className='myImages__username'>{user.displayName}</p>
+    <>
+      {/* <Modal show={showModal} modalClosed={closedModal}>
+        <div>knn</div>
+      </Modal> */}
+      <div className='myImages'>
+        <div className='myImages__header'>
+          <div className='myImages__left'>
+            <img className='myImages__img' src={user.photoURL} alt='' />
+          </div>
+          <div className='myImages__right'>
+            <p className='myImages__username'>{user.displayName}</p>
 
-          <p>{myPosts.length} posts</p>
+            <p>{myPosts.length} posts</p>
+          </div>
+        </div>
+
+        <div className='myImages__Cont'>
+          {myPosts.map((post, index) => (
+            <MyImage key={post.id} id={post.id} post={post.data} />
+          ))}
         </div>
       </div>
-
-      <div className='myImages__Cont'>
-        {myPosts.map((post, index) => (
-          <MyImage key={post.id} id={post.id} post={post.data} />
-        ))}
-      </div>
-    </div>
+    </>
   ) : (
     <div>Loading...</div>
   );

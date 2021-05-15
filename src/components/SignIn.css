@@ -1,0 +1,34 @@
+.signIn {
+  background-color: var(--bgColor);
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+}
+
+.signIn__child {
+  width: 60%;
+  height: 30%;
+  background-color: white;
+  padding: 2rem;
+  margin-top: 6rem;
+}
+
+.signIn__child > button {
+  background-color: var(--bgColor);
+  border: none;
+  cursor: pointer;
+  font-size: medium;
+  padding: 1rem;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .signIn__child {
+    width: 80%;
+    height: 30%;
+    background-color: white;
+    padding: 2rem;
+    margin-top: 6rem;
+  }
+}

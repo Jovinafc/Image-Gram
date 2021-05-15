@@ -1,21 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './Post.css';
 import { Avatar } from '@material-ui/core';
-import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ChatBubbleOutlineOutlinedIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
 import { useStateValue } from '../../StateProvider';
 
-const Post = ({ key, post, addLike, dummyFn, addComment }) => {
-  const [{ user }, dispatch] = useStateValue();
+const Post = ({ key, post, addLike, addComment, deleteImage }) => {
+  const [{ user }] = useStateValue();
   const [toggle, setToggle] = useState(false);
   const [liked, setLiked] = useState(false);
   const [comment, setComment] = useState('');
-  // console.log(post);
-  // console.log(post.data.profilePic);
-  // console.log(
-  //   'https://lh3.googleusercontent.com/a/AATXAJwBDzsLwn_ovEdOWnfh5DD-XI3_3dkytfo9_v7q=s96-c'
-  // );
 
   const toggleClick = (e) => {
     e.preventDefault();
@@ -31,7 +25,7 @@ const Post = ({ key, post, addLike, dummyFn, addComment }) => {
     } else {
       setLiked(false);
     }
-  }, [post]);
+  }, [post, user]);
 
   const commentAdd = (e) => {
     e.preventDefault();
@@ -47,9 +41,14 @@ const Post = ({ key, post, addLike, dummyFn, addComment }) => {
           // src='https://lh3.googleusercontent.com/a/AATXAJwBDzsLwn_ovEdOWnfh5DD-XI3_3dkytfo9_v7q=s96-c'
         />
         <h5>{post.data.username || 'Username'}</h5>
+        {deleteImage ? (
+          <button onClick={() => deleteImage()} className='post__delete'>
+            Delete
+          </button>
+        ) : null}
       </div>
       <div className='post__image'>
-        <img className='post__image--img' src={post.data.imageUrl} />
+        <img className='post__image--img' src={post.data.imageUrl} alt='' />
       </div>
       <div className='post__content'>
         <div className='post__content--top'>
@@ -65,7 +64,7 @@ const Post = ({ key, post, addLike, dummyFn, addComment }) => {
               <p className='post__likedCount'>0</p>
             )}
           </div>
-          <div onClick={() => dummyFn(post.id)} className='post__content--icon'>
+          <div className='post__content--icon'>
             <ChatBubbleOutlineOutlinedIcon />{' '}
             {post.data.comments ? (
               <p className='post__likedCount'>{post.data.comments.length}</p>

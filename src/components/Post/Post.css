@@ -18,6 +18,10 @@
   cursor: pointer;
 }
 
+.post__delete {
+  margin-left: auto;
+}
+
 .post__image {
   margin: 0.5rem 0rem;
   height: 20rem;
@@ -138,8 +142,8 @@ textarea {
     display: flex;
     flex-direction: column;
     width: 100vw;
-    margin: 0rem;
-    padding: 0rem;
+    margin: 1rem 0rem;
+    padding: 1rem 0rem;
   }
 
   .post__header {

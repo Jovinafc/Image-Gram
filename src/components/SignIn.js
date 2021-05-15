@@ -4,6 +4,7 @@ import firebase from 'firebase/app';
 import { useStateValue } from '../StateProvider';
 import { actionTypes } from '../reducer';
 import { Redirect } from 'react-router-dom';
+import './SignIn.css';
 
 const SignIn = (props) => {
   const [{ user }, dispatch] = useStateValue();
@@ -13,8 +14,6 @@ const SignIn = (props) => {
     auth
       .signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((result) => {
-        console.log(result.user);
-        console.log(result.user.uid);
         dispatch({
           type: actionTypes.LOGIN,
           user: result.user,
@@ -29,15 +28,14 @@ const SignIn = (props) => {
   };
 
   if (user) {
-    console.log('Inside Redirect Block');
     return <Redirect to='/' />;
   }
 
   return (
-    <div>
-      SignIn Form
-      <div>
-        <button onClick={signWithGoogle}>Sign In</button>
+    <div className='signIn'>
+      <div className='signIn__child'>
+        <h2>Welcome to ImageGram</h2>
+        <button onClick={signWithGoogle}>Sign In With Google</button>
       </div>
     </div>
   );

@@ -1,12 +1,17 @@
 export const initialState = {
   user: null,
   isAuthenticated: false,
+  message: '',
+  alertType: '',
+  show: false,
 };
 
 export const actionTypes = {
   LOGIN: 'LOGIN',
   LOGOUT: 'LOGOUT',
   LOAD_USER: 'LOAD_USER',
+  ALERT_SET: 'ALERT_SET',
+  ALERT_REMOVE: 'ALERT_REMOVE',
 };
 
 const reducer = (state, action) => {
@@ -29,6 +34,20 @@ const reducer = (state, action) => {
       return {
         ...state,
         user: JSON.parse(localStorage.getItem('user')),
+      };
+    case actionTypes.ALERT_SET:
+      return {
+        ...state,
+        show: true,
+        message: action.message,
+        alertType: action.alertType,
+      };
+    case actionTypes.ALERT_REMOVE:
+      return {
+        ...state,
+        show: false,
+        message: '',
+        alertType: '',
       };
     default:
       return state;
