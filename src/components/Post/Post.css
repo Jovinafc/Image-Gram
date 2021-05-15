@@ -20,6 +20,11 @@
 
 .post__delete {
   margin-left: auto;
+  border: none;
+  background-color: var(--bgColor);
+  color: white;
+  padding: 0.4rem;
+  cursor: pointer;
 }
 
 .post__image {
